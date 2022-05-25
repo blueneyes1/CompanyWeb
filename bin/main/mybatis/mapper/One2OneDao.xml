@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL 끝에 ; 세미콜론을 넣지 마세요! -->
+
+<mapper namespace="com.study.springboot.dao.IOne2oneDao">     
+	
+	<insert id="one2one_insert" parameterType="com.study.springboot.dto.One2oneDto"> 
+		INSERT INTO company_one2one VALUES 
+		(company_one2one_seq.nextval,#{one2one_name},#{one2one_phone},#{one2one_email},#{one2one_address},#{one2one_title},#{one2one_content},sysdate)
+	</insert>
+	
+	<insert id="one2one_insert_map" parameterType="map"> 
+		INSERT INTO company_one2one VALUES 
+		(company_one2one_seq.nextval,#{one2one_name},#{one2one_phone},#{one2one_email},#{one2one_address},#{one2one_title},#{one2one_content},sysdate)
+	</insert>
+	
+</mapper>    
+
+

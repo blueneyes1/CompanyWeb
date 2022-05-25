@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.springboot.dao.IFaqDao"> 
+
+	<select id="faq_list" resultType="com.study.springboot.dto.FaqDto"> 
+		select * from company_faq order by faq_idx desc
+	</select>
+	
+	<select id="contentView" resultType="com.study.springboot.dto.FaqDto"> 
+		select * from company_faq where faq_idx=#{param1}
+	</select>
+	
+	<select id="faq_list_search_title" resultType="com.study.springboot.dto.FaqDto"> 
+		select * from company_faq where faq_title like '%' ||  #{keyword} || '%' order by faq_idx desc
+	</select>
+	
+	<select id="faq_list_search_content" resultType="com.study.springboot.dto.FaqDto"> 
+		select * from company_faq where faq_content like '%' ||  #{keyword} || '%' order by faq_idx desc
+	</select>
+	
+	
+</mapper>

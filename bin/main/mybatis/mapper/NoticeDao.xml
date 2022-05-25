@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL 끝에 ; 세미콜론을 넣지 마세요! -->
+
+<mapper namespace="com.study.springboot.dao.INoticeDao">     
+	
+	<select id="notice_list" resultType="com.study.springboot.dto.NoticeDto"> 
+		select * from company_notice order by notice_idx desc
+	</select>
+	
+	<select id="notice_content" resultType="com.study.springboot.dto.NoticeDto"> 
+		select * from company_notice where notice_idx=#{param1}
+	</select>	
+	
+	<select id="notice_list_search_title" resultType="com.study.springboot.dto.NoticeDto"> 
+		select * from company_notice where notice_title like '%' ||  #{keyword} || '%' order by notice_idx desc
+	</select>
+	
+	<select id="notice_list_search_content" resultType="com.study.springboot.dto.NoticeDto"> 
+		select * from company_notice where notice_content like '%' ||  #{keyword} || '%' order by notice_idx desc
+	</select>
+	
+	
+</mapper>    
+
+
