@@ -39,11 +39,6 @@
 	    	return true; //submit전송됨.
 		}
 		
-		// ajax으로 서버와 통신한다.
-		// ajax : page 리로딩없이 서버와 통신한다.
-		// ajax 용도 : 화면 갱신(reload,redirect)가 없이
-		//            부분화면 갱신(통신)을 js에서 한다.
-		//           예)네이버 - 실시간검색어, 실시간날씨
 		function idCheck() {
 			var member_id = $( '#member_id' ).val();
 			if(!member_id){

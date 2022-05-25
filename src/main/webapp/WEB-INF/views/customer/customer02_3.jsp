@@ -43,7 +43,7 @@
 	    	<input type="image" src="/img/customer/btn_confirm.gif" onclick="popup_close();">
 		</div>
 	    <div>
-	    	<input onclick="window.close()" class="closeBtn" type="image" onclick="window.close()" src="/img/member/btn_close.gif"></a>
+	    	<input onclick="window.close()" class="closeBtn" type="image" onclick="window.close()" src="/img/member/btn_close.gif">
 	    </div>
   	</div>
   </form>

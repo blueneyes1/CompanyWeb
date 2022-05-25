@@ -59,7 +59,7 @@ public class MyController {
 		
 		model.addAttribute("mainPage", "member/login.jsp");
 		
-		return "index"; //index.jsp 디스패치 
+		return "index"; // index.jsp 디스패치 
 	}
 	// 로그인액션	
 	@RequestMapping("/member/loginAction")
@@ -69,13 +69,13 @@ public class MyController {
 			                  HttpServletRequest request) {
 		
 		int result = memberService.login(member_id, member_pw);
-		if( result == 1 ) { //로그인 성공
+		if( result == 1 ) { // 로그인 성공
 			
-			//로그인 세션 등록
+			// 로그인 세션 등록
 			request.getSession().setAttribute("member_id", member_id);
 			
 			return "<script>alert('로그인 성공!'); location.href='/';</script>";
-		}else { //로그인 성공
+		}else { // 로그인 실패
 			return "<script>alert('로그인 실패!'); history.back(-1);</script>";
 		}
 	}
@@ -106,7 +106,7 @@ public class MyController {
 		
 		String member_id = memberService.idFind(member_name, member_email);
 				
-		//hasText함수 : null체크? 문자열공백없이 의미있는 문자열있는지?
+		// hasText함수 : null체크? 문자열공백없이 의미있는 문자열있는지?
 		if( StringUtils.hasText(member_id) ) {			
 			return "<script>alert('아이디를 찾았습니다.'); location.href='/member/idFind?find_member_id=" + member_id + "';</script>";
 		}else {
@@ -120,7 +120,7 @@ public class MyController {
 	public String passwordFind(@RequestParam(value="find_member_pw", required=false) String find_member_pw,
 			             Model model) {
 		model.addAttribute("find_member_pw", find_member_pw);
-		return "/member/passwordFind"; //"passwordFind.jsp" 디스패치
+		return "/member/passwordFind"; // "passwordFind.jsp" 디스패치
 	}
 	// 패스워드찾기 액션
 	@RequestMapping("/member/passwordFindAction") 
@@ -132,7 +132,7 @@ public class MyController {
 		
 		String member_pw = memberService.passwordFind(member_name, member_id, member_email);
 				
-		//hasText함수 : null체크? 문자열공백없이 의미있는 문자열있는지?
+		// hasText함수 : null체크? 문자열공백없이 의미있는 문자열있는지?
 		if( StringUtils.hasText(member_pw) ) {			
 			return "<script>alert('암호를 찾았습니다.'); location.href='/member/passwordFind?find_member_pw=" + member_pw + "';</script>";
 		}else {
@@ -147,7 +147,7 @@ public class MyController {
 		
 		model.addAttribute("mainPage", "member/join.jsp");
 		
-		return "index"; //index.jsp 디스패치 
+		return "index"; // index.jsp 디스패치 
 	}
 	
 	// 회원가입 화면
@@ -156,7 +156,7 @@ public class MyController {
 		
 		model.addAttribute("mainPage", "member/join2.jsp");
 		
-		return "index"; //index.jsp 디스패치 
+		return "index"; // index.jsp 디스패치 
 	}
 	// 아이디 중복체크		
 	@RequestMapping("/member/idCheckAjax")
@@ -166,9 +166,9 @@ public class MyController {
 		int result = memberService.idCheckAjax( member_id );
 				
 		if( result >= 1 ) {
-			return "1"; //아이디 중복됨.
+			return "1"; // 아이디 중복됨.
 		}else {
-			return "0"; //아이디 중복안됨.
+			return "0"; // 아이디 중복안됨.
 		}
 		
 	}
@@ -215,7 +215,7 @@ public class MyController {
 				
 		List<NoticeDto> notice_list = null;
 		
-		//검색을 통해 호출됨.
+		// 검색을 통해 호출됨.
 		if( StringUtils.hasText(keyword) ) {
 			notice_list = noticeService.notice_list_search(search_cate, keyword);	
 		}else {
@@ -227,7 +227,7 @@ public class MyController {
 		model.addAttribute("mainPage", "community/community01.jsp");
 		
 		
-		return "index"; //index.jsp 디스패치 
+		return "index"; // index.jsp 디스패치 
 	}
 	// 공지글 자세히보기 화면
 	@RequestMapping("/community/community01_1")
@@ -241,7 +241,7 @@ public class MyController {
 		model.addAttribute("mainPage", "community/community01_1.jsp");
 		
 		
-		return "index"; //index.jsp 디스패치 
+		return "index"; // index.jsp 디스패치 
 	}
 	
 	// 1:1문의 화면
@@ -252,7 +252,7 @@ public class MyController {
 		model.addAttribute("mainPage", "customer/customer01.jsp");
 		
 		
-		return "index"; //index.jsp 디스패치 
+		return "index"; // index.jsp 디스패치 
 	}
 	// 1:1문의 액션
 	@RequestMapping("/customer/one2one_insert")
@@ -302,7 +302,7 @@ public class MyController {
 		 
 	}
 	
-	//묻고답하기 리스트 화면
+	// 묻고답하기 리스트 화면
 	@RequestMapping("/customer/customer02")
 	public String customer02(HttpServletRequest request, Model model) {
 		
@@ -311,7 +311,7 @@ public class MyController {
 		
 		model.addAttribute("mainPage", "customer/customer02.jsp");
 		
-		return "index"; //index.jsp 디스패치 
+		return "index"; // index.jsp 디스패치 
 	}
 	
 	// 묻고답하기 작성 화면
@@ -320,7 +320,7 @@ public class MyController {
 		
 		model.addAttribute("mainPage", "customer/customer02_2.jsp");
 		
-		return "index"; //index.jsp 디스패치 
+		return "index"; // index.jsp 디스패치 
 	}
 	
 	// 비밀번호 확인 화면
@@ -331,7 +331,7 @@ public class MyController {
 		request.setAttribute("qna_idx", qna_idx);
 		
 		
-		return "customer/customer02_3"; //customer/customer02_3.jsp 디스패치 
+		return "customer/customer02_3"; // customer/customer02_3.jsp 디스패치 
 	}
 	
 	// 비밀번호확인 액션 및 묻고답하기 상세화면
@@ -349,7 +349,7 @@ public class MyController {
 
 			model.addAttribute("mainPage", "customer/customer02_4.jsp"); //contentView
 			
-			return "index"; //index.jsp 디스패치
+			return "index"; // index.jsp 디스패치
 		}
 		else  
 		{
@@ -387,7 +387,7 @@ public class MyController {
 	}
 	
 	
-	//FAQ
+	//FAQ 리스트 화면 및 검색
 	@RequestMapping("/customer/customer03")
 	public String customer03(@RequestParam(value="search_cate", required=false) String search_cate,
 							@RequestParam(value="keyword", required=false) String keyword,
@@ -395,20 +395,20 @@ public class MyController {
 		
 		List<FaqDto> faq_list = null;
 		
-		//검색을 통해 호출됨.
+		// 검색을 통해 호출됨.
 		if( StringUtils.hasText(keyword) ) {
 			faq_list = faqService.faq_list_search(search_cate, keyword);	
 		}else {
 			faq_list = faqService.faq_list();	
 		}
 		
-		//request.setAttribute("faq_list", faq_list);	
 		model.addAttribute("faq_list", faq_list);
 		model.addAttribute("mainPage", "customer/customer03.jsp");
 		
-		return "index"; //index.jsp 디스패치 
+		return "index"; // index.jsp 디스패치 
 	}
 	
+	// FAQ 상세 화면
 	@RequestMapping("/customer/customer03_1")
 	public String customer03_1(@RequestParam("faq_idx") String faq_idx, 
 			HttpServletRequest request, Model model) {
@@ -418,8 +418,55 @@ public class MyController {
 		
 		model.addAttribute("mainPage", "customer/customer03_1.jsp");
 		
-		return "index"; //index.jsp 디스패치 
+		return "index"; // index.jsp 디스패치 
 	}
+	
+	// 회사소개 화면
+	@RequestMapping("/company/company01")
+	public String company01(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("mainPage", "company/company01.jsp");
+		
+		return "index"; // index.jsp 디스패치 
+	}
+	
+	// 오시는길 화면
+	@RequestMapping("/company/company03")
+	public String company03(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("mainPage", "company/company03.jsp");
+		
+		return "index"; // index.jsp 디스패치 
+	}
+	
+	// 사업분야 화면	
+	@RequestMapping("/business/business01")
+	public String business01(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("mainPage", "business/business01.jsp");
+		
+		return "index"; // index.jsp 디스패치 
+	}
+	
+	// 제품안내 화면
+	@RequestMapping("/product/product01")
+	public String product01(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("mainPage", "product/product01.jsp");
+		
+		return "index"; // index.jsp 디스패치 
+	}
+	
+	// 제품안내 상세 화면
+	@RequestMapping("/product/product01_1")
+	public String product01_1(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("mainPage", "product/product01_1.jsp");
+		
+		return "index"; // index.jsp 디스패치 
+	}
+	
+	
 }
 
 

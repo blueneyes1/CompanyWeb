@@ -99,7 +99,7 @@
                 <p>DFSA 101</p>
                 <button>VIEW</button>
               </div>
-            </div>
+            </div>            
           </a>
         </div>
         <div class="proSection3 ">

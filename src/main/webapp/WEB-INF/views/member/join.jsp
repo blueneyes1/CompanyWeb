@@ -71,14 +71,12 @@
 
   <script>
     function agree() {
-      //반복문전에 boolean변수에 초기값.
       var isAllCheck = true;
       var checkboxArray = document.getElementsByClassName('check');
       for(var cbx of checkboxArray) {
         if(cbx.checked == false){
           isAllCheck = false;
-          break; //반복문을 탈출하는 키워드
-          //continue; //반복문의 해당루프를 탈출하는 키워드
+          break;
         }
       }
       if(isAllCheck == true){
